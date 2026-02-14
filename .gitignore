@@ -208,4 +208,4 @@ __marimo__/
 
 models/
 *.h5
-
+*.keras

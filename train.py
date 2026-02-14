@@ -46,6 +46,24 @@ model.compile(
     metrics = ['accuracy']
 )
 
+# Train the Model
+history = model.fit(
+    x_train,
+    y_train,
+    epochs=5,
+    batch_size=32,
+    validation_data=(x_test, y_test)
+)
+
+# Evaluate model
+test_loss, test_acc = model.evaluate(x_test, y_test)
+print("Test accuracy:", test_acc)
+
+# Save the model
+model.save("models/digit_model.keras")
+
+
+
 
 
 
