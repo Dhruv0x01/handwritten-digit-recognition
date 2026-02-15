@@ -2,8 +2,25 @@
 <html>
     <head>
         <title>Handwritten Digit Recognition</title>
+        <link rel="stylesheet" href="/static/css/style.css">
     </head>
     <body>
-        <h1>Handwritten Digit Recognition App</h1>
+        <h1>Draw a Digit</h1>
+
+        <div id="total">
+        <canvas id="canvas" width="280" height="280"></canvas>
+        <br><br>
+
+        <div>
+            <h2>Prediction:</h2>
+            <h1 id="result">-</h1>
+        </div>
+        </div>
+
+
+        <button id="clearBtn">Clear</button>
+
+        
+        <script src="/static/js/canvas.js"></script>
     </body>
 </html>

@@ -1,0 +1,10 @@
+#canvas{
+    width: 280px;
+    height: 280px;
+    border: 2px solid black;
+}
+#total{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
