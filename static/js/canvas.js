@@ -11,7 +11,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 // White drawing color 
 ctx.strokeStyle = "white";
-ctx.lineWidth = 15;
+ctx.lineWidth = 10;
 ctx.lineCap = "round";
 
 let drawing = false;
