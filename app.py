@@ -35,9 +35,8 @@ def predict():
     prediction = predict_digit(processed_image)
     return jsonify({"prediction": int(prediction)})
 
-
 if __name__ == "__main__":
-    app.run(debug=True)            
+    app.run(debug=True)
 
 
 
