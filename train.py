@@ -1,6 +1,6 @@
 from tensorflow.keras.datasets import mnist   
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense 
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization
 from tensorflow.keras.optimizers import Adam
 
 from utils.preprocess import normalize_images, reshape_images
@@ -25,16 +25,25 @@ print("Testing data shape:", x_test.shape)
 # CNN Architecture 
 model = Sequential()
 
-
+# Block 1
 model.add(Conv2D(32, (3,3), activation='relu', input_shape=(28, 28, 1)))
+model.add(BatchNormalization())
 model.add(MaxPooling2D((2,2)))
 
+# Block 2
 model.add(Conv2D(64, (3,3), activation="relu"))
+model.add(BatchNormalization())
 model.add(MaxPooling2D((2,2)))
 
+# Block 3
+model.add(Conv2D(128, (3,3), activation="relu"))
+model.add(BatchNormalization())
 
 model.add(Flatten())
+
 model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+
 model.add(Dense(10, activation='softmax'))
 
 model.summary()
