@@ -9,20 +9,17 @@ import numpy as np
 from tensorflow.keras import backend as K
 import time 
 
-from utils.preprocess import normalize_images, reshape_images
+from utils.preprocess import preprocess_for_cnn
 
 # Load the dataset
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 # Preprocess images
 
-#Normalized
-x_train = normalize_images(x_train)
-x_test = normalize_images(x_test)
+#Normalized & Reshaped
+x_train = preprocess_for_cnn(x_train)
+x_test = preprocess_for_cnn(x_test)
 
-#Reshaped
-x_train = reshape_images(x_train)
-x_test = reshape_images(x_test)
 
 print("Training data shape:", x_train.shape)
 print("Testing data shape:", x_test.shape)
@@ -69,8 +66,8 @@ model.summary()
 
 optimizers = {
     "adam": Adam(learning_rate = 0.0005),
-    "sgd": SGD(learning_rate=0.01, momentum=0.9),
-    "rmsprop": RMSprop(learning_rate=0.001)
+    "sgd": SGD(learning_rate=0.005, momentum=0.9, nesterov=True),
+    "rmsprop": RMSprop(learning_rate=0.0005)
 }
 
 results = {}

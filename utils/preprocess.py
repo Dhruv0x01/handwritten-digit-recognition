@@ -12,7 +12,20 @@ def reshape_images(images):
     return images.reshape(images.shape[0], 28, 28, 1)
 
 # Flatten Images for Classical ML (28x28 -> 784)
+def flatten_images(images):
+    return images.reshape(images.shape[0], -1)
 
+# CNN Pipeline
+def preprocess_for_cnn(images):
+    images = normalize_images(images)
+    images = reshape_images(images)
+    return images
+
+# Classical ML pipeline
+def preprocess_for_classical(images):
+    images = normalize_images(images)
+    images = flatten_images(images)
+    return images
 
 # Preprocess single user-drawn image (for GUI)
 def preprocess_user_image(image):
