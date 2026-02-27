@@ -11,6 +11,9 @@ def normalize_images(images):
 def reshape_images(images):
     return images.reshape(images.shape[0], 28, 28, 1)
 
+# Flatten Images for Classical ML (28x28 -> 784)
+
+
 # Preprocess single user-drawn image (for GUI)
 def preprocess_user_image(image):
     #Resize to 28x28
